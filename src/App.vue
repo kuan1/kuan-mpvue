@@ -1,31 +1,30 @@
 <script>
 export default {
   created () {
-    // 调用API从本地缓存中获取数据
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    console.log('app created and cache logs by setStorageSync')
+    // 账号信息
+    console.log(wx)
+    // 用户当前设置
+    wx.getSetting({
+      success ({ authSetting }) {
+        console.log('当前用户设置：', authSetting)
+      },
+      fail (data) {
+        console.log('获取设置失败：', data)
+      },
+      complete (data) {
+      }
+    })
+    console.log('app is created')
   }
 }
 </script>
 
 <style>
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
+page {
+  min-height: 100%;
 }
-/* this rule will be remove */
-* {
-  transition: width 2s;
-  -moz-transition: width 2s;
-  -webkit-transition: width 2s;
-  -o-transition: width 2s;
+.container {
+  width: 100%;
+  height: 100%;
 }
 </style>
