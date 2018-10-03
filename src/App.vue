@@ -1,8 +1,6 @@
 <script>
 export default {
   created () {
-    // 账号信息
-    console.log(wx)
     // 用户当前设置
     wx.getSetting({
       success ({ authSetting }) {
@@ -22,9 +20,43 @@ export default {
 <style>
 page {
   min-height: 100%;
+  font-size: 24rpx;
 }
-.container {
-  width: 100%;
-  height: 100%;
+.flex1 {
+  display: flex;
+}
+.column-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.between-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.middle-flex {
+  display: flex;
+  align-items: center;
+}
+
+.center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.center-transform {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.center-absolute {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
 }
 </style>
